@@ -34,7 +34,7 @@ CREATE TABLE company_profile (
         report_currency TEXT NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
-INSERT INTO "company_profile" VALUES(1,'SNAPRINT DIGITAL PRINTING','Semua Cabang','ACCURATE Accounting System','IDR (Rupiah)','2026-10-18 07:21:34');
+INSERT INTO "company_profile" VALUES(1,'SNAPRINT DIGITAL PRINTING','Semua Cabang','ACCURATE Accounting System','IDR (Rupiah)','2026-10-18 08:04:40');
 CREATE TABLE master_categories (
         category_id INTEGER PRIMARY KEY AUTOINCREMENT,
         category_name TEXT UNIQUE NOT NULL,
