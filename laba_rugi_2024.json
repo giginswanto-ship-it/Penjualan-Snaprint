@@ -1,0 +1,115 @@
+{
+  "year": 2024,
+  "period_label": "01 Jan 2024 s/d 31 Des 2024 (12 Bulan Penuh)",
+  "months_count": 12,
+  "revenue": {
+    "gross_sales": 933337771.0,
+    "sales_discounts": -340998.0,
+    "sales_discounts_idr": -2149513.0,
+    "net_revenue": 930847260.0
+  },
+  "cogs": {
+    "total_cogs": 326930387.45,
+    "cogs_pct": 35.12180800209907
+  },
+  "gross_profit": {
+    "amount": 603916872.55,
+    "margin_pct": 64.87819199790091
+  },
+  "operating_expenses": {
+    "total": 280927183.0,
+    "pct_of_revenue": 30.179729271588553,
+    "items": [
+      {
+        "name": "Beban Gaji, Upah & Honorer",
+        "amount": 222980105.0
+      },
+      {
+        "name": "Beban Listrik",
+        "amount": 26529000.0
+      },
+      {
+        "name": "Beban Operasional Lainnya",
+        "amount": 12896078.0
+      },
+      {
+        "name": "Beban Perlengkapan Kantor",
+        "amount": 5073500.0
+      },
+      {
+        "name": "Beban Telekomunikasi",
+        "amount": 4194500.0
+      },
+      {
+        "name": "Beban THR",
+        "amount": 2500000.0
+      },
+      {
+        "name": "Service / Perbaikan Mesin",
+        "amount": 2089500.0
+      },
+      {
+        "name": "Beban Retribusi & Sumbangan",
+        "amount": 1225000.0
+      },
+      {
+        "name": "Beban Tunjangan Kesehatan",
+        "amount": 800000.0
+      },
+      {
+        "name": "Beban Penyusutan Gedung",
+        "amount": 749000.0
+      },
+      {
+        "name": "Beban Penyusutan Inventaris Kantor",
+        "amount": 500000.0
+      },
+      {
+        "name": "Beban Perjalanan Dinas",
+        "amount": 495000.0
+      },
+      {
+        "name": "Beban Gojek",
+        "amount": 495000.0
+      },
+      {
+        "name": "Beban Iklan",
+        "amount": 347500.0
+      },
+      {
+        "name": "Beban Bensin, Parkir, Tol Kendaraan",
+        "amount": 238000.0
+      },
+      {
+        "name": "Beban Komisi",
+        "amount": 150000.0
+      },
+      {
+        "name": "Beban Ekspedisi, Pos & Materai",
+        "amount": 92000.0
+      },
+      {
+        "name": "Beban Transportasi Karyawan",
+        "amount": 40000.0
+      },
+      {
+        "name": "Beban Katering & Makan Karyawan",
+        "amount": 28000.0
+      }
+    ]
+  },
+  "operating_income": {
+    "amount": 322989689.55,
+    "margin_pct": 34.69846272631237
+  },
+  "non_operating": {
+    "income": 0.0,
+    "expenses": 147000.0,
+    "net": -147000.0
+  },
+  "net_profit": {
+    "amount": 322842689.55,
+    "margin_pct": 34.68267066177968,
+    "avg_monthly": 26903557.462500002
+  }
+}

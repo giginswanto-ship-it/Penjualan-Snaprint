@@ -34,7 +34,7 @@ CREATE TABLE company_profile (
         report_currency TEXT NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
-INSERT INTO "company_profile" VALUES(1,'SNAPRINT DIGITAL PRINTING','Semua Cabang','ACCURATE Accounting System','IDR (Rupiah)','2026-10-18 06:58:54');
+INSERT INTO "company_profile" VALUES(1,'SNAPRINT DIGITAL PRINTING','Semua Cabang','ACCURATE Accounting System','IDR (Rupiah)','2026-10-18 07:21:34');
 CREATE TABLE master_categories (
         category_id INTEGER PRIMARY KEY AUTOINCREMENT,
         category_name TEXT UNIQUE NOT NULL,
@@ -148,6 +148,53 @@ INSERT INTO "monthly_sales" VALUES(29,2026,5,'Mei','Mei',156420000.0,30000.0,13.
 INSERT INTO "monthly_sales" VALUES(30,2026,6,'Jun','Juni',148490000.0,28500.0,12.580612377070285,-5.069684183608234,0.64489901656228765,0);
 INSERT INTO "monthly_sales" VALUES(31,2026,7,'Jul','Juli',173733640.22,33500.0,14.719345305846913,17.000229119806047,17.754762446775299,1);
 INSERT INTO "monthly_sales" VALUES(32,2026,8,'Agu','Agustus',153744563.78,35293.0,13.025798114337261,-11.505587757608545,4.2063849146980941,0);
+CREATE TABLE operating_expenses_breakdown (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        year INTEGER NOT NULL,
+        expense_name TEXT NOT NULL,
+        amount REAL NOT NULL,
+        pct_of_revenue REAL NOT NULL,
+        FOREIGN KEY (year) REFERENCES master_years(year)
+    );
+INSERT INTO "operating_expenses_breakdown" VALUES(1,2024,'Beban Gaji, Upah & Honorer',222980105.0,23.954532024942523);
+INSERT INTO "operating_expenses_breakdown" VALUES(2,2024,'Beban Listrik',26529000.0,2.8499842176040784);
+INSERT INTO "operating_expenses_breakdown" VALUES(3,2024,'Beban Operasional Lainnya',12896078.0,1.3854128979226947);
+INSERT INTO "operating_expenses_breakdown" VALUES(4,2024,'Beban Perlengkapan Kantor',5073500.0,0.54504108439874444);
+INSERT INTO "operating_expenses_breakdown" VALUES(5,2024,'Beban Telekomunikasi',4194500.0,0.45061098423386886);
+INSERT INTO "operating_expenses_breakdown" VALUES(6,2024,'Beban THR',2500000.0,0.26857252606619908);
+INSERT INTO "operating_expenses_breakdown" VALUES(7,2024,'Service / Perbaikan Mesin',2089500.0,0.22447291728612923);
+INSERT INTO "operating_expenses_breakdown" VALUES(8,2024,'Beban Retribusi & Sumbangan',1225000.0,0.13160053777243755);
+INSERT INTO "operating_expenses_breakdown" VALUES(9,2024,'Beban Tunjangan Kesehatan',800000.0,0.0859432083411837);
+INSERT INTO "operating_expenses_breakdown" VALUES(10,2024,'Beban Penyusutan Gedung',749000.0,0.080464328809433244);
+INSERT INTO "operating_expenses_breakdown" VALUES(11,2024,'Beban Penyusutan Inventaris Kantor',500000.0,0.053714505213239817);
+INSERT INTO "operating_expenses_breakdown" VALUES(12,2024,'Beban Perjalanan Dinas',495000.0,0.053177360161107412);
+INSERT INTO "operating_expenses_breakdown" VALUES(13,2024,'Beban Gojek',495000.0,0.053177360161107412);
+INSERT INTO "operating_expenses_breakdown" VALUES(14,2024,'Beban Iklan',347500.0,0.037331581123201674);
+INSERT INTO "operating_expenses_breakdown" VALUES(15,2024,'Beban Bensin, Parkir, Tol Kendaraan',238000.0,0.025568104481502155);
+INSERT INTO "operating_expenses_breakdown" VALUES(16,2024,'Beban Komisi',150000.0,0.016114351563971948);
+INSERT INTO "operating_expenses_breakdown" VALUES(17,2024,'Beban Ekspedisi, Pos & Materai',92000.0,0.0098834689592361257);
+INSERT INTO "operating_expenses_breakdown" VALUES(18,2024,'Beban Transportasi Karyawan',40000.0,0.0042971604170591853);
+INSERT INTO "operating_expenses_breakdown" VALUES(19,2024,'Beban Katering & Makan Karyawan',28000.0,0.0030080122919414298);
+INSERT INTO "operating_expenses_breakdown" VALUES(20,2025,'Beban Gaji, Upah & Honorer',248899970.0,18.049938131973111);
+INSERT INTO "operating_expenses_breakdown" VALUES(21,2025,'Beban Listrik',33659000.0,2.4409117750559912);
+INSERT INTO "operating_expenses_breakdown" VALUES(22,2025,'Beban THR',10800000.0,0.78320351675940181);
+INSERT INTO "operating_expenses_breakdown" VALUES(23,2025,'Beban Operasional Lainnya',8921000.0,0.6469406086120949);
+INSERT INTO "operating_expenses_breakdown" VALUES(24,2025,'Beban Perlengkapan Kantor',7425500.0,0.53848867719416094);
+INSERT INTO "operating_expenses_breakdown" VALUES(25,2025,'Service / Perbaikan Mesin',7134000.0,0.5173494341260716);
+INSERT INTO "operating_expenses_breakdown" VALUES(26,2025,'Beban Telekomunikasi',5050700.0,0.36627092612006584);
+INSERT INTO "operating_expenses_breakdown" VALUES(27,2025,'Beban Perjalanan Dinas',4420500.0,0.32056955054027186);
+INSERT INTO "operating_expenses_breakdown" VALUES(28,2025,'Beban Gojek',4420500.0,0.32056955054027186);
+INSERT INTO "operating_expenses_breakdown" VALUES(29,2025,'Beban Retribusi & Sumbangan',1900000.0,0.13778580387433922);
+INSERT INTO "operating_expenses_breakdown" VALUES(30,2026,'Beban Gaji, Upah & Honorer',195692575.0,17.012249873421759);
+INSERT INTO "operating_expenses_breakdown" VALUES(31,2026,'Service / Perbaikan Mesin',33302000.0,2.8950610174386608);
+INSERT INTO "operating_expenses_breakdown" VALUES(32,2026,'Beban Listrik',22635000.0,1.967740860300405);
+INSERT INTO "operating_expenses_breakdown" VALUES(33,2026,'Beban THR',8783331.0,0.76356612760076059);
+INSERT INTO "operating_expenses_breakdown" VALUES(34,2026,'Beban Perlengkapan Kantor',8295300.0,0.72113986120830342);
+INSERT INTO "operating_expenses_breakdown" VALUES(35,2026,'Beban Perjalanan Dinas',5010000.0,0.43553707577225659);
+INSERT INTO "operating_expenses_breakdown" VALUES(36,2026,'Beban Gojek',5010000.0,0.43553707577225659);
+INSERT INTO "operating_expenses_breakdown" VALUES(37,2026,'Beban Telekomunikasi',3298000.0,0.2867068414963877);
+INSERT INTO "operating_expenses_breakdown" VALUES(38,2026,'Beban Operasional Lainnya',2497500.0,0.2171165362756908);
+INSERT INTO "operating_expenses_breakdown" VALUES(39,2026,'Beban Retribusi & Sumbangan',950000.0,0.082586870655417921);
 CREATE TABLE product_monthly_2024 (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         product_id INTEGER NOT NULL,
@@ -1846,6 +1893,30 @@ INSERT INTO "products_2024" VALUES(126,126,'Pindo Folio - Merah Muda','Kertas, S
 INSERT INTO "products_2024" VALUES(127,127,'Kardus Mug Putih Polos / 50 Pcs','Merchandise & Produk Custom','-',60.0,0.0,0.0,0);
 INSERT INTO "products_2024" VALUES(128,128,'isi cutter','Jasa Desain, Percetakan Lain & Perlengkapan','-',1.0,0.0,0.0,0);
 INSERT INTO "products_2024" VALUES(129,129,'cutting mate','Finishing, Jilid & Laminasi','-',4.0,0.0,0.0,0);
+CREATE TABLE profit_loss_summary (
+        year INTEGER PRIMARY KEY,
+        period_label TEXT NOT NULL,
+        months_count INTEGER NOT NULL,
+        gross_sales REAL NOT NULL,
+        discounts REAL NOT NULL,
+        net_revenue REAL NOT NULL,
+        cogs REAL NOT NULL,
+        cogs_pct REAL NOT NULL,
+        gross_profit REAL NOT NULL,
+        gross_margin_pct REAL NOT NULL,
+        operating_expenses REAL NOT NULL,
+        opex_pct REAL NOT NULL,
+        operating_income REAL NOT NULL,
+        operating_margin_pct REAL NOT NULL,
+        non_operating_net REAL NOT NULL,
+        net_profit REAL NOT NULL,
+        net_profit_margin_pct REAL NOT NULL,
+        avg_monthly_net_profit REAL NOT NULL,
+        FOREIGN KEY (year) REFERENCES master_years(year)
+    );
+INSERT INTO "profit_loss_summary" VALUES(2024,'01 Jan 2024 s/d 31 Des 2024 (12 Bulan Penuh)',12,933337771.0,-2490511.0,930847260.0,326930387.45,35.121808002099073,603916872.55,64.878191997900913,280927183.0,30.179729271588553,322989689.55,34.698462726312371,-147000.0,322842689.55,34.682670661779682,26903557.462500002);
+INSERT INTO "profit_loss_summary" VALUES(2025,'01 Jan 2025 s/d 31 Des 2025 (12 Bulan Penuh)',12,1381263949.7,-2312021.0,1378951928.7,478379575.12,34.691533849986342,900572353.58,65.308466150013658,328210670.0,23.801458424255511,572361683.58,41.50700772575815,-29998.7,572331684.88,41.504832254708312,47694307.073333331);
+INSERT INTO "profit_loss_summary" VALUES(2026,'01 Jan 2026 s/d 31 Agu 2026 (8 Bulan Berjalan)',8,1166526630.0,-16222722.78,1150303907.22,486574898.02,42.299682281000948,663729009.2,57.700317718999052,280463706.0,24.381705064169644,383265303.2,33.318612654829401,0.78,383265303.98,33.318612722637568,47908162.9975);
 CREATE TABLE yoy_comparison_8m (
         month_num INTEGER PRIMARY KEY,
         month_code TEXT NOT NULL,
@@ -1880,6 +1951,21 @@ CREATE VIEW v_annual_performance AS
         peak_month || ' (Rp ' || printf('%,d', CAST(peak_month_sales AS INT)) || ')' AS Bulan_Puncak
     FROM master_years
     ORDER BY year;
+CREATE VIEW v_profit_and_loss_summary AS
+    SELECT 
+        year AS Tahun,
+        period_label AS Periode,
+        'Rp ' || printf('%,d', CAST(net_revenue AS INT)) AS Pendapatan_Bersih_Rp,
+        'Rp ' || printf('%,d', CAST(cogs AS INT)) AS Beban_Pokok_HPP_Rp,
+        printf('%.2f%%', cogs_pct) AS HPP_Pct,
+        'Rp ' || printf('%,d', CAST(gross_profit AS INT)) AS Laba_Kotor_Rp,
+        printf('%.2f%%', gross_margin_pct) AS Gross_Margin,
+        'Rp ' || printf('%,d', CAST(operating_expenses AS INT)) AS Beban_Operasional_Rp,
+        'Rp ' || printf('%,d', CAST(net_profit AS INT)) AS LABA_BERSIH_Rp,
+        printf('%.2f%%', net_profit_margin_pct) AS Net_Profit_Margin,
+        'Rp ' || printf('%,d', CAST(avg_monthly_net_profit AS INT)) AS Laba_Bersih_Bulanan_Rp
+    FROM profit_loss_summary
+    ORDER BY year;
 CREATE VIEW v_comparison_3_years_8m AS
     SELECT 
         month_num AS No_Bulan,
@@ -1899,6 +1985,14 @@ CREATE VIEW v_category_summary AS
         printf('%.2f%%', pct_of_year) AS Porsi
     FROM annual_category_sales
     ORDER BY year DESC, total_sales DESC;
+CREATE VIEW v_operating_expenses_ranking AS
+    SELECT 
+        year AS Tahun,
+        expense_name AS Nama_Akun_Beban,
+        'Rp ' || printf('%,d', CAST(amount AS INT)) AS Nilai_Beban_Rp,
+        printf('%.2f%%', pct_of_revenue) AS Porsi_vs_Omzet
+    FROM operating_expenses_breakdown
+    ORDER BY year DESC, amount DESC;
 CREATE VIEW v_pareto_core80_2024 AS
     SELECT 
         rank_no AS Peringkat,
@@ -1919,4 +2013,5 @@ INSERT INTO "sqlite_sequence" VALUES('monthly_category_matrix',20);
 INSERT INTO "sqlite_sequence" VALUES('annual_category_sales',18);
 INSERT INTO "sqlite_sequence" VALUES('products_2024',129);
 INSERT INTO "sqlite_sequence" VALUES('product_monthly_2024',1548);
+INSERT INTO "sqlite_sequence" VALUES('operating_expenses_breakdown',39);
 COMMIT;

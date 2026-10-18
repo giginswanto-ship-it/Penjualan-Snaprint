@@ -22,11 +22,13 @@ def create_sql_database():
     # 1. CREATE TABLES
     cur.executescript("""
     -- ========================================================
-    -- DATABASE SKEMA: SNAPRINT DIGITAL PRINTING SALES SYSTEM
+    -- DATABASE SKEMA: SNAPRINT DIGITAL PRINTING SALES & PROFIT/LOSS SYSTEM
     -- Terintegrasi Multi-Tahun: 2024, 2025, 2026 (s/d Agustus)
     -- Sumber Data: ACCURATE Accounting System
     -- ========================================================
 
+    DROP TABLE IF EXISTS operating_expenses_breakdown;
+    DROP TABLE IF EXISTS profit_loss_summary;
     DROP TABLE IF EXISTS product_monthly_2024;
     DROP TABLE IF EXISTS products_2024;
     DROP TABLE IF EXISTS yoy_comparison_8m;
@@ -158,6 +160,39 @@ def create_sql_database():
         growth_26_vs_25_pct REAL NOT NULL,
         growth_26_vs_24_rp REAL NOT NULL,
         growth_26_vs_24_pct REAL NOT NULL
+    );
+
+    -- TABEL LABA / RUGI TAHUNAN (ACCURATE INCOME STATEMENT)
+    CREATE TABLE profit_loss_summary (
+        year INTEGER PRIMARY KEY,
+        period_label TEXT NOT NULL,
+        months_count INTEGER NOT NULL,
+        gross_sales REAL NOT NULL,
+        discounts REAL NOT NULL,
+        net_revenue REAL NOT NULL,
+        cogs REAL NOT NULL,
+        cogs_pct REAL NOT NULL,
+        gross_profit REAL NOT NULL,
+        gross_margin_pct REAL NOT NULL,
+        operating_expenses REAL NOT NULL,
+        opex_pct REAL NOT NULL,
+        operating_income REAL NOT NULL,
+        operating_margin_pct REAL NOT NULL,
+        non_operating_net REAL NOT NULL,
+        net_profit REAL NOT NULL,
+        net_profit_margin_pct REAL NOT NULL,
+        avg_monthly_net_profit REAL NOT NULL,
+        FOREIGN KEY (year) REFERENCES master_years(year)
+    );
+
+    -- TABEL RINCIAN BEBAN OPERASIONAL
+    CREATE TABLE operating_expenses_breakdown (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        year INTEGER NOT NULL,
+        expense_name TEXT NOT NULL,
+        amount REAL NOT NULL,
+        pct_of_revenue REAL NOT NULL,
+        FOREIGN KEY (year) REFERENCES master_years(year)
     );
     """)
 
@@ -339,9 +374,46 @@ def create_sql_database():
             ((row["sales_2026"] - row["sales_2024"]) / row["sales_2024"]) * 100
         ))
 
+    # INSERT PROFIT & LOSS DATA (2024, 2025, 2026)
+    with open("laba_rugi_2024.json", "r", encoding="utf-8") as f:
+        pl24 = json.load(f)
+    with open("2025/laba_rugi_2025.json", "r", encoding="utf-8") as f:
+        pl25 = json.load(f)
+    with open("2026/laba_rugi_2026.json", "r", encoding="utf-8") as f:
+        pl26 = json.load(f)
+
+    for pl in [pl24, pl25, pl26]:
+        cur.execute("""
+        INSERT INTO profit_loss_summary (
+            year, period_label, months_count, gross_sales, discounts, net_revenue,
+            cogs, cogs_pct, gross_profit, gross_margin_pct, operating_expenses, opex_pct,
+            operating_income, operating_margin_pct, non_operating_net,
+            net_profit, net_profit_margin_pct, avg_monthly_net_profit
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+        """, (
+            pl["year"], pl["period_label"], pl["months_count"],
+            pl["revenue"]["gross_sales"],
+            pl["revenue"].get("sales_discounts", 0) + pl["revenue"].get("sales_discounts_idr", 0) + pl["revenue"].get("returns", 0),
+            pl["revenue"]["net_revenue"],
+            pl["cogs"]["total_cogs"], pl["cogs"]["cogs_pct"],
+            pl["gross_profit"]["amount"], pl["gross_profit"]["margin_pct"],
+            pl["operating_expenses"]["total"], pl["operating_expenses"]["pct_of_revenue"],
+            pl["operating_income"]["amount"], pl["operating_income"]["margin_pct"],
+            pl["non_operating"]["net"],
+            pl["net_profit"]["amount"], pl["net_profit"]["margin_pct"],
+            pl["net_profit"]["avg_monthly"]
+        ))
+
+        # Insert Operating Expenses Breakdown
+        for item in pl["operating_expenses"]["items"]:
+            cur.execute("""
+            INSERT INTO operating_expenses_breakdown (year, expense_name, amount, pct_of_revenue)
+            VALUES (?, ?, ?, ?);
+            """, (pl["year"], item["name"], item["amount"], (item["amount"] / pl["revenue"]["net_revenue"]) * 100))
+
     # 3. CREATE CONVENIENT SQL VIEWS
     cur.executescript("""
-    -- View Ringkasan Kinerja Tahunan
+    -- View Ringkasan Kinerja Penjualan
     CREATE VIEW v_annual_performance AS
     SELECT 
         year AS Tahun,
@@ -352,6 +424,23 @@ def create_sql_database():
         'Rp ' || printf('%,d', CAST(avg_monthly_sales AS INT)) AS Rerata_Bulanan_Rp,
         peak_month || ' (Rp ' || printf('%,d', CAST(peak_month_sales AS INT)) || ')' AS Bulan_Puncak
     FROM master_years
+    ORDER BY year;
+
+    -- VIEW RINGKASAN LABA / RUGI RESMI
+    CREATE VIEW v_profit_and_loss_summary AS
+    SELECT 
+        year AS Tahun,
+        period_label AS Periode,
+        'Rp ' || printf('%,d', CAST(net_revenue AS INT)) AS Pendapatan_Bersih_Rp,
+        'Rp ' || printf('%,d', CAST(cogs AS INT)) AS Beban_Pokok_HPP_Rp,
+        printf('%.2f%%', cogs_pct) AS HPP_Pct,
+        'Rp ' || printf('%,d', CAST(gross_profit AS INT)) AS Laba_Kotor_Rp,
+        printf('%.2f%%', gross_margin_pct) AS Gross_Margin,
+        'Rp ' || printf('%,d', CAST(operating_expenses AS INT)) AS Beban_Operasional_Rp,
+        'Rp ' || printf('%,d', CAST(net_profit AS INT)) AS LABA_BERSIH_Rp,
+        printf('%.2f%%', net_profit_margin_pct) AS Net_Profit_Margin,
+        'Rp ' || printf('%,d', CAST(avg_monthly_net_profit AS INT)) AS Laba_Bersih_Bulanan_Rp
+    FROM profit_loss_summary
     ORDER BY year;
 
     -- View Komparasi Bulanan 3 Tahun (Jan - Agu)
@@ -376,6 +465,16 @@ def create_sql_database():
         printf('%.2f%%', pct_of_year) AS Porsi
     FROM annual_category_sales
     ORDER BY year DESC, total_sales DESC;
+
+    -- View Ranking Beban Operasional Terbesar Per Tahun
+    CREATE VIEW v_operating_expenses_ranking AS
+    SELECT 
+        year AS Tahun,
+        expense_name AS Nama_Akun_Beban,
+        'Rp ' || printf('%,d', CAST(amount AS INT)) AS Nilai_Beban_Rp,
+        printf('%.2f%%', pct_of_revenue) AS Porsi_vs_Omzet
+    FROM operating_expenses_breakdown
+    ORDER BY year DESC, amount DESC;
 
     -- View 24 Produk Core 80% Tahun 2024 (Pareto)
     CREATE VIEW v_pareto_core80_2024 AS

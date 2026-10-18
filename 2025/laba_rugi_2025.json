@@ -1,0 +1,82 @@
+{
+  "year": 2025,
+  "period_label": "01 Jan 2025 s/d 31 Des 2025 (12 Bulan Penuh)",
+  "months_count": 12,
+  "revenue": {
+    "gross_sales": 1381263949.7,
+    "returns": -904500.0,
+    "sales_discounts": -619521.0,
+    "sales_discounts_idr": -788000.0,
+    "net_revenue": 1378951928.7
+  },
+  "cogs": {
+    "total_cogs": 478379575.12,
+    "cogs_pct": 34.69153384998634
+  },
+  "gross_profit": {
+    "amount": 900572353.58,
+    "margin_pct": 65.30846615001366
+  },
+  "operating_expenses": {
+    "total": 328210670.0,
+    "pct_of_revenue": 23.80145842425551,
+    "items": [
+      {
+        "name": "Beban Gaji, Upah & Honorer",
+        "amount": 248899970.0
+      },
+      {
+        "name": "Beban Listrik",
+        "amount": 33659000.0
+      },
+      {
+        "name": "Beban THR",
+        "amount": 10800000.0
+      },
+      {
+        "name": "Beban Operasional Lainnya",
+        "amount": 8921000.0
+      },
+      {
+        "name": "Beban Perlengkapan Kantor",
+        "amount": 7425500.0
+      },
+      {
+        "name": "Service / Perbaikan Mesin",
+        "amount": 7134000.0
+      },
+      {
+        "name": "Beban Telekomunikasi",
+        "amount": 5050700.0
+      },
+      {
+        "name": "Beban Perjalanan Dinas",
+        "amount": 4420500.0
+      },
+      {
+        "name": "Beban Gojek",
+        "amount": 4420500.0
+      },
+      {
+        "name": "Beban Retribusi & Sumbangan",
+        "amount": 1900000.0
+      }
+    ]
+  },
+  "operating_income": {
+    "amount": 572361683.58,
+    "margin_pct": 41.50700772575815
+  },
+  "non_operating": {
+    "income": 1.3,
+    "expenses": 30000.0,
+    "net": -29998.7
+  },
+  "net_profit": {
+    "amount": 572331684.88,
+    "margin_pct": 41.50483225470831,
+    "avg_monthly": 47694307.07333333,
+    "growth_vs_prev_year_rp": 249488995.32999998,
+    "growth_vs_prev_year_pct": 77.27881206718808
+  }
+}

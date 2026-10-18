@@ -5502,7 +5502,122 @@
           "Des": 0.0
         }
       }
-    ]
+    ],
+    "profit_loss": {
+      "year": 2024,
+      "period_label": "01 Jan 2024 s/d 31 Des 2024 (12 Bulan Penuh)",
+      "months_count": 12,
+      "revenue": {
+        "gross_sales": 933337771.0,
+        "sales_discounts": -340998.0,
+        "sales_discounts_idr": -2149513.0,
+        "net_revenue": 930847260.0
+      },
+      "cogs": {
+        "total_cogs": 326930387.45,
+        "cogs_pct": 35.12180800209907
+      },
+      "gross_profit": {
+        "amount": 603916872.55,
+        "margin_pct": 64.87819199790091
+      },
+      "operating_expenses": {
+        "total": 280927183.0,
+        "pct_of_revenue": 30.179729271588553,
+        "items": [
+          {
+            "name": "Beban Gaji, Upah & Honorer",
+            "amount": 222980105.0
+          },
+          {
+            "name": "Beban Listrik",
+            "amount": 26529000.0
+          },
+          {
+            "name": "Beban Operasional Lainnya",
+            "amount": 12896078.0
+          },
+          {
+            "name": "Beban Perlengkapan Kantor",
+            "amount": 5073500.0
+          },
+          {
+            "name": "Beban Telekomunikasi",
+            "amount": 4194500.0
+          },
+          {
+            "name": "Beban THR",
+            "amount": 2500000.0
+          },
+          {
+            "name": "Service / Perbaikan Mesin",
+            "amount": 2089500.0
+          },
+          {
+            "name": "Beban Retribusi & Sumbangan",
+            "amount": 1225000.0
+          },
+          {
+            "name": "Beban Tunjangan Kesehatan",
+            "amount": 800000.0
+          },
+          {
+            "name": "Beban Penyusutan Gedung",
+            "amount": 749000.0
+          },
+          {
+            "name": "Beban Penyusutan Inventaris Kantor",
+            "amount": 500000.0
+          },
+          {
+            "name": "Beban Perjalanan Dinas",
+            "amount": 495000.0
+          },
+          {
+            "name": "Beban Gojek",
+            "amount": 495000.0
+          },
+          {
+            "name": "Beban Iklan",
+            "amount": 347500.0
+          },
+          {
+            "name": "Beban Bensin, Parkir, Tol Kendaraan",
+            "amount": 238000.0
+          },
+          {
+            "name": "Beban Komisi",
+            "amount": 150000.0
+          },
+          {
+            "name": "Beban Ekspedisi, Pos & Materai",
+            "amount": 92000.0
+          },
+          {
+            "name": "Beban Transportasi Karyawan",
+            "amount": 40000.0
+          },
+          {
+            "name": "Beban Katering & Makan Karyawan",
+            "amount": 28000.0
+          }
+        ]
+      },
+      "operating_income": {
+        "amount": 322989689.55,
+        "margin_pct": 34.69846272631237
+      },
+      "non_operating": {
+        "income": 0.0,
+        "expenses": 147000.0,
+        "net": -147000.0
+      },
+      "net_profit": {
+        "amount": 322842689.55,
+        "margin_pct": 34.68267066177968,
+        "avg_monthly": 26903557.462500002
+      }
+    }
   },
   "data_2025": {
     "year": 2025,
@@ -5758,7 +5873,89 @@
         "pct": 4.71,
         "items": "Cutting A3, Cutting Mate, Circle Cutter, Potong K/N, Laminating Tebal & Roll (Doff/Glossy), Jilid Lakban, Ring Kawat, Mika, Mata Ayam"
       }
-    ]
+    ],
+    "profit_loss": {
+      "year": 2025,
+      "period_label": "01 Jan 2025 s/d 31 Des 2025 (12 Bulan Penuh)",
+      "months_count": 12,
+      "revenue": {
+        "gross_sales": 1381263949.7,
+        "returns": -904500.0,
+        "sales_discounts": -619521.0,
+        "sales_discounts_idr": -788000.0,
+        "net_revenue": 1378951928.7
+      },
+      "cogs": {
+        "total_cogs": 478379575.12,
+        "cogs_pct": 34.69153384998634
+      },
+      "gross_profit": {
+        "amount": 900572353.58,
+        "margin_pct": 65.30846615001366
+      },
+      "operating_expenses": {
+        "total": 328210670.0,
+        "pct_of_revenue": 23.80145842425551,
+        "items": [
+          {
+            "name": "Beban Gaji, Upah & Honorer",
+            "amount": 248899970.0
+          },
+          {
+            "name": "Beban Listrik",
+            "amount": 33659000.0
+          },
+          {
+            "name": "Beban THR",
+            "amount": 10800000.0
+          },
+          {
+            "name": "Beban Operasional Lainnya",
+            "amount": 8921000.0
+          },
+          {
+            "name": "Beban Perlengkapan Kantor",
+            "amount": 7425500.0
+          },
+          {
+            "name": "Service / Perbaikan Mesin",
+            "amount": 7134000.0
+          },
+          {
+            "name": "Beban Telekomunikasi",
+            "amount": 5050700.0
+          },
+          {
+            "name": "Beban Perjalanan Dinas",
+            "amount": 4420500.0
+          },
+          {
+            "name": "Beban Gojek",
+            "amount": 4420500.0
+          },
+          {
+            "name": "Beban Retribusi & Sumbangan",
+            "amount": 1900000.0
+          }
+        ]
+      },
+      "operating_income": {
+        "amount": 572361683.58,
+        "margin_pct": 41.50700772575815
+      },
+      "non_operating": {
+        "income": 1.3,
+        "expenses": 30000.0,
+        "net": -29998.7
+      },
+      "net_profit": {
+        "amount": 572331684.88,
+        "margin_pct": 41.50483225470831,
+        "avg_monthly": 47694307.07333333,
+        "growth_vs_prev_year_rp": 249488995.32999998,
+        "growth_vs_prev_year_pct": 77.27881206718808
+      }
+    }
   },
   "data_2026": {
     "year": 2026,
@@ -5959,7 +6156,87 @@
         "pct": 3.5,
         "items": "Print Color A4 (1 Muka & Bb), Print BW A4 (Mesin IR 1 Muka & Bb), Print BW A3 (Mesin IR 1 Muka & Bb), Fotocopy A4/Q/Folio, Fotocopy A3, Kertas HVS (A4, Folio, A3 80 gr, 100 gr), Kertas Pindo Folio Warna, Amplop F4/Jaya, Scan A4."
       }
-    ]
+    ],
+    "profit_loss": {
+      "year": 2026,
+      "period_label": "01 Jan 2026 s/d 31 Agu 2026 (8 Bulan Berjalan)",
+      "months_count": 8,
+      "revenue": {
+        "gross_sales": 1166526630.0,
+        "sales_discounts": -510213.0,
+        "sales_discounts_idr": -15712509.78,
+        "net_revenue": 1150303907.22
+      },
+      "cogs": {
+        "total_cogs": 486574898.02,
+        "cogs_pct": 42.29968228100095
+      },
+      "gross_profit": {
+        "amount": 663729009.2,
+        "margin_pct": 57.70031771899905
+      },
+      "operating_expenses": {
+        "total": 280463706.0,
+        "pct_of_revenue": 24.381705064169644,
+        "items": [
+          {
+            "name": "Beban Gaji, Upah & Honorer",
+            "amount": 195692575.0
+          },
+          {
+            "name": "Service / Perbaikan Mesin",
+            "amount": 33302000.0
+          },
+          {
+            "name": "Beban Listrik",
+            "amount": 22635000.0
+          },
+          {
+            "name": "Beban THR",
+            "amount": 8783331.0
+          },
+          {
+            "name": "Beban Perlengkapan Kantor",
+            "amount": 8295300.0
+          },
+          {
+            "name": "Beban Perjalanan Dinas",
+            "amount": 5010000.0
+          },
+          {
+            "name": "Beban Gojek",
+            "amount": 5010000.0
+          },
+          {
+            "name": "Beban Telekomunikasi",
+            "amount": 3298000.0
+          },
+          {
+            "name": "Beban Operasional Lainnya",
+            "amount": 2497500.0
+          },
+          {
+            "name": "Beban Retribusi & Sumbangan",
+            "amount": 950000.0
+          }
+        ]
+      },
+      "operating_income": {
+        "amount": 383265303.2,
+        "margin_pct": 33.3186126548294
+      },
+      "non_operating": {
+        "income": 0.78,
+        "expenses": 0.0,
+        "net": 0.78
+      },
+      "net_profit": {
+        "amount": 383265303.98,
+        "margin_pct": 33.31861272263757,
+        "avg_monthly": 47908162.9975,
+        "projected_full_year": 574897955.97
+      }
+    }
   },
   "yoy": {
     "growth_sales": 448104668.68999994,
@@ -6197,6 +6474,48 @@
         "qty_2024": 34358.19,
         "qty_2025": 41200.0,
         "qty_2026": 35293.0
+      }
+    ]
+  },
+  "profit_loss_comparison": {
+    "summary": [
+      {
+        "year": 2024,
+        "period": "12 Bulan",
+        "revenue": 930847260.0,
+        "cogs": 326930387.45,
+        "gross_profit": 603916872.55,
+        "gross_margin_pct": 64.87819199790091,
+        "opex": 280927183.0,
+        "net_profit": 322842689.55,
+        "net_margin_pct": 34.68267066177968,
+        "avg_monthly_net_profit": 26903557.462500002
+      },
+      {
+        "year": 2025,
+        "period": "12 Bulan",
+        "revenue": 1378951928.7,
+        "cogs": 478379575.12,
+        "gross_profit": 900572353.58,
+        "gross_margin_pct": 65.30846615001366,
+        "opex": 328210670.0,
+        "net_profit": 572331684.88,
+        "net_margin_pct": 41.50483225470831,
+        "avg_monthly_net_profit": 47694307.07333333,
+        "growth_net_profit_pct": 77.27881206718808
+      },
+      {
+        "year": 2026,
+        "period": "8 Bulan (Jan-Agu)",
+        "revenue": 1150303907.22,
+        "cogs": 486574898.02,
+        "gross_profit": 663729009.2,
+        "gross_margin_pct": 57.70031771899905,
+        "opex": 280463706.0,
+        "net_profit": 383265303.98,
+        "net_margin_pct": 33.31861272263757,
+        "avg_monthly_net_profit": 47908162.9975,
+        "projected_full_year_net_profit": 574897955.97
       }
     ]
   }
