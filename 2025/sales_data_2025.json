@@ -1,0 +1,256 @@
+{
+  "year": 2025,
+  "kpi": {
+    "total_sales": 1378951928.7,
+    "total_qty": 387284.0,
+    "avg_monthly_sales": 114912660.72500001,
+    "peak_month": "Agustus",
+    "peak_month_sales": 140092115.2,
+    "lowest_month": "April",
+    "lowest_month_sales": 84330000.0,
+    "h1_sales": 600860000.0,
+    "h2_sales": 778092115.2,
+    "q1_sales": 296490000.0,
+    "q2_sales": 304370000.0,
+    "q3_sales": 380502115.2,
+    "q4_sales": 397590000.0
+  },
+  "monthly": [
+    {
+      "code": "Jan",
+      "name": "Januari",
+      "sales": 99330000.0,
+      "qty": 27800.0,
+      "pct": 7.203296788862165,
+      "mom_growth": 0.0,
+      "vs_avg": -13.560438533654018,
+      "matrix": {
+        "large_format": 42700000.0,
+        "print_a3": 30300000.0,
+        "doc_fc": 4200000.0,
+        "finishing": 6300000.0,
+        "merchandise": 15800000.0
+      }
+    },
+    {
+      "code": "Feb",
+      "name": "Februari",
+      "sales": 97320000.0,
+      "qty": 28400.0,
+      "pct": 7.057533912131943,
+      "mom_growth": -2.023557837511326,
+      "vs_avg": -15.309593054416684,
+      "matrix": {
+        "large_format": 38900000.0,
+        "print_a3": 36400000.0,
+        "doc_fc": 7600000.0,
+        "finishing": 5600000.0,
+        "merchandise": 8800000.0
+      }
+    },
+    {
+      "code": "Mar",
+      "name": "Maret",
+      "sales": 99840000.0,
+      "qty": 29100.0,
+      "pct": 7.240281399375805,
+      "mom_growth": 2.5893958076448826,
+      "vs_avg": -13.116623207490358,
+      "matrix": {
+        "large_format": 41500000.0,
+        "print_a3": 34700000.0,
+        "doc_fc": 7600000.0,
+        "finishing": 6600000.0,
+        "merchandise": 9400000.0
+      }
+    },
+    {
+      "code": "Apr",
+      "name": "April",
+      "sales": 84330000.0,
+      "qty": 23500.0,
+      "pct": 6.115514126696329,
+      "mom_growth": -15.534855769230768,
+      "vs_avg": -26.61383047964405,
+      "matrix": {
+        "large_format": 34800000.0,
+        "print_a3": 26400000.0,
+        "doc_fc": 7600000.0,
+        "finishing": 4600000.0,
+        "merchandise": 10900000.0
+      }
+    },
+    {
+      "code": "Mei",
+      "name": "Mei",
+      "sales": 109960000.0,
+      "qty": 31200.0,
+      "pct": 7.974172102117021,
+      "mom_growth": 30.3925056326337,
+      "vs_avg": -4.30993477459575,
+      "matrix": {
+        "large_format": 46200000.0,
+        "print_a3": 33100000.0,
+        "doc_fc": 11300000.0,
+        "finishing": 4700000.0,
+        "merchandise": 14700000.0
+      }
+    },
+    {
+      "code": "Jun",
+      "name": "Juni",
+      "sales": 110080000.0,
+      "qty": 30800.0,
+      "pct": 7.982874363414348,
+      "mom_growth": 0.10913059294288831,
+      "vs_avg": -4.2055076390278305,
+      "matrix": {
+        "large_format": 44400000.0,
+        "print_a3": 41200000.0,
+        "doc_fc": 8100000.0,
+        "finishing": 5500000.0,
+        "merchandise": 10900000.0
+      }
+    },
+    {
+      "code": "Jul",
+      "name": "Juli",
+      "sales": 118790000.0,
+      "qty": 33500.0,
+      "pct": 8.614513495911977,
+      "mom_growth": 7.912427325581395,
+      "vs_avg": 3.374161950943714,
+      "matrix": {
+        "large_format": 43500000.0,
+        "print_a3": 44700000.0,
+        "doc_fc": 10300000.0,
+        "finishing": 5300000.0,
+        "merchandise": 15000000.0
+      }
+    },
+    {
+      "code": "Agu",
+      "name": "Agustus",
+      "sales": 140092115.2,
+      "qty": 41200.0,
+      "pct": 10.159318268046597,
+      "mom_growth": 17.93258287734657,
+      "vs_avg": 21.911819216559156,
+      "matrix": {
+        "large_format": 68800000.0,
+        "print_a3": 36800000.0,
+        "doc_fc": 11800000.0,
+        "finishing": 5500000.0,
+        "merchandise": 17200000.0
+      }
+    },
+    {
+      "code": "Sep",
+      "name": "September",
+      "sales": 121620000.0,
+      "qty": 33900.0,
+      "pct": 8.819741824840598,
+      "mom_growth": -13.185692266569468,
+      "vs_avg": 5.8369018980871665,
+      "matrix": {
+        "large_format": 46400000.0,
+        "print_a3": 46500000.0,
+        "doc_fc": 9800000.0,
+        "finishing": 5300000.0,
+        "merchandise": 13600000.0
+      }
+    },
+    {
+      "code": "Okt",
+      "name": "Oktober",
+      "sales": 138260000.0,
+      "qty": 38100.0,
+      "pct": 10.026455391403232,
+      "mom_growth": 13.681960203913828,
+      "vs_avg": 20.317464696838776,
+      "matrix": {
+        "large_format": 52200000.0,
+        "print_a3": 53600000.0,
+        "doc_fc": 17500000.0,
+        "finishing": 5100000.0,
+        "merchandise": 9900000.0
+      }
+    },
+    {
+      "code": "Nov",
+      "name": "November",
+      "sales": 128120000.0,
+      "qty": 34800.0,
+      "pct": 9.291114311779127,
+      "mom_growth": -7.334008389989874,
+      "vs_avg": 11.493371741349513,
+      "matrix": {
+        "large_format": 47800000.0,
+        "print_a3": 54900000.0,
+        "doc_fc": 4900000.0,
+        "finishing": 5400000.0,
+        "merchandise": 15100000.0
+      }
+    },
+    {
+      "code": "Des",
+      "name": "Desember",
+      "sales": 131210000.00000001,
+      "qty": 34984.0,
+      "pct": 9.515197540185289,
+      "mom_growth": 2.4118014361536178,
+      "vs_avg": 14.182370482223472,
+      "matrix": {
+        "large_format": 40800000.0,
+        "print_a3": 52400000.0,
+        "doc_fc": 18200000.0,
+        "finishing": 4900000.0,
+        "merchandise": 14900000.0
+      }
+    }
+  ],
+  "categories": [
+    {
+      "name": "Large Format (Banner, Flexy, Stiker Outdoor)",
+      "short_name": "Large Format & Outdoor",
+      "total_sales": 509000000.0,
+      "pct": 36.91,
+      "items": "Flexy 280 (110, 220, 320), Flexy 340, Flexy 440, Albatros, Ritrama, Standing Roll Banner, Paket X-Banner"
+    },
+    {
+      "name": "Digital Print A3+ & Kertas Lembaran",
+      "short_name": "Digital Print A3+ & Sheet",
+      "total_sales": 488600000.0,
+      "pct": 35.43,
+      "items": "Print Color A3 (1 Muka & Bb), Print Color Kn A3, Brosur Digital, Kertas AC 260, AP 150, Linen, BW A3, Stiker Cromo, Quantac, Vinyl"
+    },
+    {
+      "name": "Dokumen Kantor, Fotocopy & Cetak IR",
+      "short_name": "Dokumen & Fotocopy",
+      "total_sales": 118900000.0,
+      "pct": 8.62,
+      "items": "Print Color A4, Print BW A4/A3 Mesin IR, Fotocopy A4/Q/Folio/A3, Kertas HVS (A4, Folio, A3), Kertas Pindo, Amplop F4, Scan A4"
+    },
+    {
+      "name": "Jasa Desain, Nota & Percetakan Khusus",
+      "short_name": "Jasa Desain & Cetak Umum",
+      "total_sales": 118800000.0,
+      "pct": 8.61,
+      "items": "Paket Desain Grafis, Setting/Design, Cetak Nota Karbon/NCR, Cetak Khusus, Materai Resmi, Stop Map Folio, Press, Ongkir"
+    },
+    {
+      "name": "Merchandise, Kalender, Custom & Promosi",
+      "short_name": "Merchandise & Custom",
+      "total_sales": 78850000.0,
+      "pct": 5.72,
+      "items": "Mug Custom, Pin Peniti 5.8cm, Ganci Akrilik, Mousepad, Kaos Dewasa, Print DTF, ID Card, Lanyard, Stempel Flash, Kalender Meja A5"
+    },
+    {
+      "name": "Finishing, Jilid & Pasca Cetak",
+      "short_name": "Finishing, Jilid & Laminasi",
+      "total_sales": 64801928.7,
+      "pct": 4.71,
+      "items": "Cutting A3, Cutting Mate, Circle Cutter, Potong K/N, Laminating Tebal & Roll (Doff/Glossy), Jilid Lakban, Ring Kawat, Mika, Mata Ayam"
+    }
+  ]
+}

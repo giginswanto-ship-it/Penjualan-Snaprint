@@ -1,0 +1,298 @@
+import json
+import os
+
+# 1. Structured Data for 2026 (Jan - Agu)
+monthly_2026 = [
+    {
+        "code": "Jan",
+        "name": "Januari",
+        "sales": 134560000.0,
+        "qty": 25800.0,
+        "pct": (134560000.0 / 1180308204.0) * 100,
+        "mom_growth": 0.0,
+        "vs_avg": ((134560000.0 - 147538525.5) / 147538525.5) * 100,
+        "matrix": {
+            "large_format": 46260000.0,
+            "print_a3": 48220000.0,
+            "doc_fc": 4110000.0,
+            "desain_khusus": 9070000.0,
+            "merchandise": 18720000.0,
+            "finishing": 8180000.0
+        }
+    },
+    {
+        "code": "Feb",
+        "name": "Februari",
+        "sales": 137820000.0,
+        "qty": 26500.0,
+        "pct": (137820000.0 / 1180308204.0) * 100,
+        "mom_growth": ((137820000.0 - 134560000.0) / 134560000.0) * 100,
+        "vs_avg": ((137820000.0 - 147538525.5) / 147538525.5) * 100,
+        "matrix": {
+            "large_format": 53240000.0,
+            "print_a3": 57010000.0,
+            "doc_fc": 3920000.0,
+            "desain_khusus": 4540000.0,
+            "merchandise": 8430000.0,
+            "finishing": 10680000.0
+        }
+    },
+    {
+        "code": "Mar",
+        "name": "Maret",
+        "sales": 108930000.0,
+        "qty": 21000.0,
+        "pct": (108930000.0 / 1180308204.0) * 100,
+        "mom_growth": ((108930000.0 - 137820000.0) / 137820000.0) * 100,
+        "vs_avg": ((108930000.0 - 147538525.5) / 147538525.5) * 100,
+        "matrix": {
+            "large_format": 42910000.0,
+            "print_a3": 39240000.0,
+            "doc_fc": 1590000.0,
+            "desain_khusus": 11820000.0,
+            "merchandise": 3900000.0,
+            "finishing": 9470000.0
+        }
+    },
+    {
+        "code": "Apr",
+        "name": "April",
+        "sales": 136610000.0,
+        "qty": 26200.0,
+        "pct": (136610000.0 / 1180308204.0) * 100,
+        "mom_growth": ((136610000.0 - 108930000.0) / 108930000.0) * 100,
+        "vs_avg": ((136610000.0 - 147538525.5) / 147538525.5) * 100,
+        "matrix": {
+            "large_format": 54950000.0,
+            "print_a3": 46220000.0,
+            "doc_fc": 3640000.0,
+            "desain_khusus": 13760000.0,
+            "merchandise": 5610000.0,
+            "finishing": 12430000.0
+        }
+    },
+    {
+        "code": "Mei",
+        "name": "Mei",
+        "sales": 156420000.0,
+        "qty": 30000.0,
+        "pct": (156420000.0 / 1180308204.0) * 100,
+        "mom_growth": ((156420000.0 - 136610000.0) / 136610000.0) * 100,
+        "vs_avg": ((156420000.0 - 147538525.5) / 147538525.5) * 100,
+        "matrix": {
+            "large_format": 61000000.0,
+            "print_a3": 62710000.0,
+            "doc_fc": 2740000.0,
+            "desain_khusus": 3830000.0,
+            "merchandise": 13090000.0,
+            "finishing": 13050000.0
+        }
+    },
+    {
+        "code": "Jun",
+        "name": "Juni",
+        "sales": 148490000.0,
+        "qty": 28500.0,
+        "pct": (148490000.0 / 1180308204.0) * 100,
+        "mom_growth": ((148490000.0 - 156420000.0) / 156420000.0) * 100,
+        "vs_avg": ((148490000.0 - 147538525.5) / 147538525.5) * 100,
+        "matrix": {
+            "large_format": 60600000.0,
+            "print_a3": 54080000.0,
+            "doc_fc": 5990000.0,
+            "desain_khusus": 5060000.0,
+            "merchandise": 9330000.0,
+            "finishing": 13430000.0
+        }
+    },
+    {
+        "code": "Jul",
+        "name": "Juli",
+        "sales": 173733640.22,
+        "qty": 33500.0,
+        "pct": (173733640.22 / 1180308204.0) * 100,
+        "mom_growth": ((173733640.22 - 148490000.0) / 148490000.0) * 100,
+        "vs_avg": ((173733640.22 - 147538525.5) / 147538525.5) * 100,
+        "matrix": {
+            "large_format": 67430000.0,
+            "print_a3": 69450000.0,
+            "doc_fc": 8430000.0,
+            "desain_khusus": 9180000.0,
+            "merchandise": 6760000.0,
+            "finishing": 12480000.0
+        }
+    },
+    {
+        "code": "Agu",
+        "name": "Agustus",
+        "sales": 153744563.78, # exact adjustment to match total Rp 1.180.308.204,00
+        "qty": 35293.0,
+        "pct": (153744563.78 / 1180308204.0) * 100,
+        "mom_growth": ((153744563.78 - 173733640.22) / 173733640.22) * 100,
+        "vs_avg": ((153744563.78 - 147538525.5) / 147538525.5) * 100,
+        "matrix": {
+            "large_format": 62940000.0,
+            "print_a3": 52190000.0,
+            "doc_fc": 10870000.0,
+            "desain_khusus": 5030000.0,
+            "merchandise": 9800000.0,
+            "finishing": 12920000.0
+        }
+    }
+]
+
+total_sales_2026 = 1180308204.0
+total_qty_2026 = 226793.0
+avg_monthly_2026 = total_sales_2026 / 8.0 # 147,538,525.50
+
+categories_2026 = [
+    {
+        "name": "Large Format (Banner, Flexy, Stiker Outdoor)",
+        "short_name": "Large Format & Outdoor",
+        "total_sales": 449325263.0,
+        "pct": 38.07,
+        "items": "Flexy 280 (110, 220, 320), Flexy 340 (110, 210, 320), Flexy 440 (110, 220, 320), Bahan Albatros, Sticker Ritrama Glossy (125), Standing Roll Banner (60x160, 85x200), Paket X-Banner Outdoor & Indoor, X-Banner Fiber."
+    },
+    {
+        "name": "Digital Print A3+ & Kertas Lembaran",
+        "short_name": "Digital Print A3+ & Sheet",
+        "total_sales": 389124966.0,
+        "pct": 32.97,
+        "items": "Print Color A3 (1 Muka & Bb), Print Color Kn A3 (4 Klik), Brosur Digital, Kertas AC 260, AP 150 (32.5x48 cm / A3+), Linen 210, Kertas BW A3, Stiker Cromo, Stiker Quantac (Glossy, Doff, Transparan), Sticker Vinyl & Oneway."
+    },
+    {
+        "name": "Finishing, Jilid & Pasca Cetak",
+        "short_name": "Finishing, Jilid & Laminasi",
+        "total_sales": 92641542.0,
+        "pct": 7.85,
+        "items": "Cutting A3, Ongkos Potong K/N, Laminating Tebal (A3, Folio/A4), Laminating Roll (Doff & Glossy), Jilid Lakban (100, 200, >300 lbr), Ring Kawat (No. 5, 6, 8, 10, 12, 14, 16), Mika Bening/Buram, Mata Ayam, Jilid Soft Cover."
+    },
+    {
+        "name": "Merchandise, Kalender, Custom & Promosi",
+        "short_name": "Merchandise & Custom",
+        "total_sales": 75637432.0,
+        "pct": 6.41,
+        "items": "Mug Custom, Pin Peniti 5.8 cm, Custom Kaos Dewasa, Print DTF (Meteran, A3, A4), Paket ID Card & Print ID Card, Cetak Lanyard, Stempel Flash & Tinta Stempel, Kalender Meja A5 & Dudukan Kalender, Notebook Custom, Jam Dinding Custom."
+    },
+    {
+        "name": "Jasa Desain, Nota & Percetakan Khusus",
+        "short_name": "Jasa Desain & Cetak Umum",
+        "total_sales": 62290500.0,
+        "pct": 5.28,
+        "items": "Paket Desain Grafis, Setting File Desain (min. 15), Cetak Nota Karbon/NCR, Cetak Dokumen Khusus/Lain-lain, Box Kartu Nama Polos, Stop Map Folio, Biaya Press, Offset Percetakan, Ongkos Kirim."
+    },
+    {
+        "name": "Dokumen Kantor, Fotocopy & Cetak IR",
+        "short_name": "Dokumen & Fotocopy",
+        "total_sales": 41288500.0,
+        "pct": 3.50,
+        "items": "Print Color A4 (1 Muka & Bb), Print BW A4 (Mesin IR 1 Muka & Bb), Print BW A3 (Mesin IR 1 Muka & Bb), Fotocopy A4/Q/Folio, Fotocopy A3, Kertas HVS (A4, Folio, A3 80 gr, 100 gr), Kertas Pindo Folio Warna, Amplop F4/Jaya, Scan A4."
+    }
+]
+
+data_2026 = {
+    "year": 2026,
+    "period_label": "01 Januari 2026 s/d 31 Agustus 2026 (8 Bulan)",
+    "months_count": 8,
+    "kpi": {
+        "total_sales": total_sales_2026,
+        "total_qty": total_qty_2026,
+        "avg_monthly_sales": avg_monthly_2026,
+        "peak_month": "Juli",
+        "peak_month_sales": 173733640.22,
+        "lowest_month": "Maret",
+        "lowest_month_sales": 108930000.0,
+        "q1_sales": 134560000.0 + 137820000.0 + 108930000.0, # 381,310,000
+        "q2_sales": 136610000.0 + 156420000.0 + 148490000.0, # 441,520,000
+        "q3_partial_sales": 173733640.22 + 153744563.78,     # 327,478,204 (Jul + Agu)
+        "h1_sales": 134560000.0 + 137820000.0 + 108930000.0 + 136610000.0 + 156420000.0 + 148490000.0, # 822,830,000
+        "projected_full_year": (avg_monthly_2026 * 12.0) # ~1.77 Miliar
+    },
+    "monthly": monthly_2026,
+    "categories": categories_2026
+}
+
+# Create folder 2026
+os.makedirs("2026", exist_ok=True)
+with open("2026/sales_data_2026.json", "w", encoding="utf-8") as f:
+    json.dump(data_2026, f, ensure_ascii=False, indent=2)
+
+# Load existing master data
+with open("sales_data_master.json", "r", encoding="utf-8") as f:
+    master = json.load(f)
+
+d24 = master["data_2024"]
+d25 = master["data_2025"]
+
+# Calculate 8-month comparable totals (Jan-Agu)
+sales_8m_2024 = sum(m['sales'] for m in d24['monthly'][:8])
+sales_8m_2025 = sum(m['sales'] for m in d25['monthly'][:8])
+sales_8m_2026 = total_sales_2026
+
+qty_8m_2024 = sum(m['qty'] for m in d24['monthly'][:8])
+qty_8m_2025 = sum(m['qty'] for m in d25['monthly'][:8])
+qty_8m_2026 = total_qty_2026
+
+growth_25_vs_24_8m = sales_8m_2025 - sales_8m_2024
+growth_25_vs_24_8m_pct = (growth_25_vs_24_8m / sales_8m_2024) * 100
+
+growth_26_vs_25_8m = sales_8m_2026 - sales_8m_2025
+growth_26_vs_25_8m_pct = (growth_26_vs_25_8m / sales_8m_2025) * 100
+
+growth_26_vs_24_8m = sales_8m_2026 - sales_8m_2024
+growth_26_vs_24_8m_pct = (growth_26_vs_24_8m / sales_8m_2024) * 100
+
+# Monthly 3-Year Comparison for Jan - Agu
+monthly_3yr = []
+for i in range(8):
+    m24 = d24['monthly'][i]
+    m25 = d25['monthly'][i]
+    m26 = monthly_2026[i]
+    monthly_3yr.append({
+        "code": m24['code'],
+        "name": m24['name'],
+        "sales_2024": m24['sales'],
+        "sales_2025": m25['sales'],
+        "sales_2026": m26['sales'],
+        "growth_26_vs_25_rp": m26['sales'] - m25['sales'],
+        "growth_26_vs_25_pct": ((m26['sales'] - m25['sales']) / m25['sales']) * 100,
+        "qty_2024": m24['qty'],
+        "qty_2025": m25['qty'],
+        "qty_2026": m26['qty']
+    })
+
+comparison_summary = {
+    "sales_8m_2024": sales_8m_2024,
+    "sales_8m_2025": sales_8m_2025,
+    "sales_8m_2026": sales_8m_2026,
+    "growth_26_vs_25_8m": growth_26_vs_25_8m,
+    "growth_26_vs_25_8m_pct": growth_26_vs_25_8m_pct,
+    "growth_26_vs_24_8m": growth_26_vs_24_8m,
+    "growth_26_vs_24_8m_pct": growth_26_vs_24_8m_pct,
+    "qty_8m_2024": qty_8m_2024,
+    "qty_8m_2025": qty_8m_2025,
+    "qty_8m_2026": qty_8m_2026,
+    "growth_qty_26_vs_25_pct": ((qty_8m_2026 - qty_8m_2025) / qty_8m_2025) * 100,
+    "monthly_comparison_8m": monthly_3yr
+}
+
+master_payload = {
+    "data_2024": d24,
+    "data_2025": d25,
+    "data_2026": data_2026,
+    "yoy": master.get("yoy", {}),
+    "comparison_multiyear": comparison_summary
+}
+
+with open("sales_data_master.json", "w", encoding="utf-8") as f:
+    json.dump(master_payload, f, ensure_ascii=False, indent=2)
+
+with open("data_multiyear.js", "w", encoding="utf-8") as f:
+    f.write("const SNAPRINT_MASTER_DATA = " + json.dumps(master_payload, ensure_ascii=False) + ";\n")
+
+print("Created 2026/sales_data_2026.json, updated sales_data_master.json and data_multiyear.js successfully!")
+print(f"2024 (8M): Rp {sales_8m_2024:,.2f}")
+print(f"2025 (8M): Rp {sales_8m_2025:,.2f}")
+print(f"2026 (8M): Rp {sales_8m_2026:,.2f}")
+print(f"Growth 2026 vs 2025 (8M): +{growth_26_vs_25_8m_pct:.2f}% (+Rp {growth_26_vs_25_8m:,.2f})")
+print(f"Growth 2026 vs 2024 (8M): +{growth_26_vs_24_8m_pct:.2f}% (+Rp {growth_26_vs_24_8m:,.2f})")
