@@ -5,6 +5,7 @@ import os
 import sys
 import json
 import subprocess
+import traceback
 
 PORT = 8080
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
@@ -60,21 +61,19 @@ class SnaprintHandler(http.server.SimpleHTTPRequestHandler):
                     if yr_key in master and monthly_data:
                         master[yr_key]["monthly"] = monthly_data
 
-                    # Update profit_loss_comparison summary
+                    # Update profit_loss_comparison summary safely
                     idx = 0 if year == 2024 else (1 if year == 2025 else 2)
                     if "profit_loss_comparison" in master and len(master["profit_loss_comparison"]["summary"]) > idx:
                         s = master["profit_loss_comparison"]["summary"][idx]
                         if pl_data:
-                            s["revenue"] = pl_data.get("revenue", {}).get("net_revenue", s["revenue"])
-                            s["cogs"] = pl_data.get("cogs", {}).get("total_cogs", s["cogs"])
-                            s["cogs_pct"] = pl_data.get("cogs", {}).get("cogs_pct", s["cogs_pct"])
-                            s["gross_profit"] = pl_data.get("gross_profit", {}).get("amount", s["gross_profit"])
-                            s["gross_margin_pct"] = pl_data.get("gross_profit", {}).get("margin_pct", s["gross_margin_pct"])
-                            s["opex"] = pl_data.get("operating_expenses", {}).get("total", s["opex"])
-                            s["opex_pct"] = pl_data.get("operating_expenses", {}).get("pct_of_revenue", s["opex_pct"])
-                            s["net_profit"] = pl_data.get("net_profit", {}).get("amount", s["net_profit"])
-                            s["net_margin_pct"] = pl_data.get("net_profit", {}).get("margin_pct", s["net_margin_pct"])
-                            s["avg_monthly_net_profit"] = pl_data.get("net_profit", {}).get("avg_monthly", s["avg_monthly_net_profit"])
+                            s["revenue"] = pl_data.get("revenue", {}).get("net_revenue", s.get("revenue", 0))
+                            s["cogs"] = pl_data.get("cogs", {}).get("total_cogs", s.get("cogs", 0))
+                            s["gross_profit"] = pl_data.get("gross_profit", {}).get("amount", s.get("gross_profit", 0))
+                            s["gross_margin_pct"] = pl_data.get("gross_profit", {}).get("margin_pct", s.get("gross_margin_pct", 0))
+                            s["opex"] = pl_data.get("operating_expenses", {}).get("total", s.get("opex", 0))
+                            s["net_profit"] = pl_data.get("net_profit", {}).get("amount", s.get("net_profit", 0))
+                            s["net_margin_pct"] = pl_data.get("net_profit", {}).get("margin_pct", s.get("net_margin_pct", 0))
+                            s["avg_monthly_net_profit"] = pl_data.get("net_profit", {}).get("avg_monthly", s.get("avg_monthly_net_profit", 0))
 
                     with open(master_path, "w", encoding="utf-8") as f:
                         json.dump(master, f, ensure_ascii=False, indent=2)
@@ -82,9 +81,12 @@ class SnaprintHandler(http.server.SimpleHTTPRequestHandler):
                 # 3. Synchronize SQLite Database & SQL script
                 sql_builder = os.path.join(DIRECTORY, "build_sql_database.py")
                 if os.path.exists(sql_builder):
-                    subprocess.run([sys.executable, sql_builder], cwd=DIRECTORY, check=False)
+                    try:
+                        subprocess.run([sys.executable, sql_builder], cwd=DIRECTORY, check=False)
+                    except Exception as sub_err:
+                        print("Warning running sql_builder:", sub_err)
 
-                # Send response
+                # Send success response
                 self.send_response(200)
                 self.send_header('Content-Type', 'application/json')
                 self.end_headers()
@@ -94,9 +96,11 @@ class SnaprintHandler(http.server.SimpleHTTPRequestHandler):
                     "year": year
                 }
                 self.wfile.write(json.dumps(resp).encode('utf-8'))
+                print(f"[API SAVE] Sukses menyimpan perubahan data tahun {year} ke file folder & SQLite DB.")
                 return
 
             except Exception as e:
+                traceback.print_exc()
                 self.send_response(500)
                 self.send_header('Content-Type', 'application/json')
                 self.end_headers()
